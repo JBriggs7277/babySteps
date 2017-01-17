@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="template :: dochead">
+</head>
+<body>
+	<div class="container">
+		  <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Baby Steps</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="/">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="/logout">Logout <span class="sr-only">(current)</span></a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+		    <form class="col-sm-4 col-sm-offset-4 login" method="post">
+		        <h2 class="form-signin-heading">Tell us about your child:</h2>
+		        <div>
+		        	<label for="name">What is the child's first name?</label>
+			        <input class="form-control" name="name" type="text" th:value="${name}"></input>
+			        <span class="text-danger" th:text="${error}"></span>
+			   </div>
+			   <div>
+			   		<label for="sex">Is the child male or female?</label>
+			        <input class="form-control" name="sex" type="text" th:value="${sex}"></input>
+			        <span class="text-danger" th:text="${error}"></span>
+			   </div>
+			   <div>
+			   		<label for="birthday">What is the child's birthday? mm/dd/yyyy</label>
+			        <input class="form-control" name="birthday" type="text" th:value="${birthday}"></input>
+			        <span class="text-danger" th:text="${error}"></span>
+			   </div>
+		       <button class="btn btn-lg btn-success" type="submit">Add Child</button>
+		       <br></br>
+		       <p><a class="btn btn-md btn-primary" th:href="'/'+ ${username}" role="button">Back</a></p>
+	    	</form>
+		    
+	</div>
+	
+</body>
+</html>

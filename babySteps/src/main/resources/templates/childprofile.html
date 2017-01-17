@@ -1,0 +1,106 @@
+<!-- Display each category in separate divs with the latest update visible, with links to that log -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="template :: dochead">
+</head>
+<body>
+	<div class="container">
+	  <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Baby Steps</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a th:href="'/'+ ${username}">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="/logout">Logout <span class="sr-only">(current)</span></a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+      
+      <div class="page-header">
+      	<h1><span th:text="${child.name}"></span>'s Logs</h1>
+      	<br></br>
+      	<br></br>
+      	<h3>Click on a specific log to view all entries.</h3>
+      </div>
+
+	  <div class="panel panel-info">
+      	<div class="panel-heading">
+        	<h3 class="panel-title">Latest changing</h3>
+        </div>
+        <div class="panel-body">
+            <div th:unless="${changinglog == null}">
+				<h1 th:text="'Contents: ' + ${changinglog.contents}"></h1>
+				<h1 th:text="'Time: ' + ${changinglog.created}"></h1>
+			</div>
+			<h2><a th:href="'/' + ${user.username} + '/' + ${child.name} + '/changinglog'">View all changing logs</a></h2>
+        </div>
+      </div>
+      <div class="panel panel-info">
+      	<div class="panel-heading">
+        	<h3 class="panel-title">Latest feeding</h3>
+        </div>
+        <div class="panel-body">
+            <div th:unless="${feedinglog == null}">
+				<h1 th:text="'Food type: ' + ${feedinglog.food}"></h1>
+				<h1 th:text="' Ounces: ' + ${feedinglog.ounces}"></h1>
+				<h1 th:text="' Burp?: ' + ${feedinglog.burps}"></h1>
+				<h1 th:text="' Time: ' + ${feedinglog.created}"></h1>
+			</div>
+			<h2><a th:href="'/' + ${user.username} + '/' + ${child.name} + '/feedinglog'">View all feeding logs</a></h2>
+        </div>
+      </div>
+      <div class="panel panel-info">
+      	<div class="panel-heading">
+        	<h3 class="panel-title">Latest medication</h3>
+        </div>
+        <div class="panel-body">
+            <div th:unless="${medicationlog == null}">
+				<h1 th:text="'Medicine: ' + ${medicationlog.medicine}"></h1>
+				<h1 th:text="'Dose: ' + ${medicationlog.dose}"></h1>
+				<h1 th:text="'Time: ' + ${medicationlog.created}"></h1>
+			</div>
+			<h2><a th:href="'/' + ${user.username} + '/' + ${child.name} + '/medicationlog'">View all medication logs</a></h2>
+        </div>
+      </div>
+      <div class="panel panel-info">
+      	<div class="panel-heading">
+        	<h3 class="panel-title">Latest measurements</h3>
+        </div>
+        <div class="panel-body">
+            <div th:unless="${measurementslog == null}">
+				<h1 th:text="'Height: ' + ${measurementslog.height}"></h1>
+				<h1 th:text="'Weight: ' + ${measurementslog.weight}"></h1>
+				<h1 th:text="'Time: ' + ${measurementslog.created}"></h1>
+			</div>
+			<h2><a th:href="'/' + ${user.username} + '/' + ${child.name} + '/measurementslog'">View all measurement logs</a></h2>
+        </div>
+      </div>
+      <div class="panel panel-info">
+      	<div class="panel-heading">
+        	<h3 class="panel-title">Latest life event</h3>
+        </div>
+        <div class="panel-body">
+            <div th:unless="${eventlog == null}">
+				<h1 th:text="'Name of event: ' + ${eventlog.title}"></h1>
+				<h1 th:text="'Details: ' + ${eventlog.body}"></h1>
+				<h1 th:text="'Time: ' + ${eventlog.created}"></h1>
+			</div>
+			<h2><a th:href="'/' + ${user.username} + '/' + ${child.name} + '/eventlog'">View all life events</a></h2>
+        </div>
+      </div>
+	<p><a class="btn btn-md btn-primary" th:href="'/'+ ${username}" role="button">Back</a></p>
+	</div>
+</body>
+</html>
