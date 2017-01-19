@@ -46,7 +46,7 @@
 		                <td th:text="${iterStat.index} + 1"></td>
 		                <td th:text="${eventlog.title}"></td>
 		                <td th:text="${eventlog.body}"></td>
-		                <td th:text="${eventlog.created}"></td>
+		                <td th:text="${#dates.format(eventlog.created, 'MM-dd-yyyy hh:mm a')}"></td>
 		                <td><a th:href="'/' + ${user.username} + '/' + ${child.name} + '/eventlog/delete/' + ${eventlog.uid}">Delete entry</a></td>
 		              </tr>
 	            </tbody>

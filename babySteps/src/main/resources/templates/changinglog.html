@@ -44,7 +44,7 @@
 		              <tr th:each="changinglog,iterStat : ${changinglogs}">
 		                <td th:text="${iterStat.index} + 1"></td>
 		                <td th:text="${changinglog.contents}"></td>
-		                <td th:text="${changinglog.created}"></td>
+		                <td th:text="${#dates.format(changinglog.created, 'MM-dd-yyyy hh:mm a')}"></td>
 		                <td><a th:href="'/' + ${user.username} + '/' + ${child.name} + '/changinglog/delete/' + ${changinglog.uid}">Delete entry</a></td>
 		              </tr>
 	            </tbody>

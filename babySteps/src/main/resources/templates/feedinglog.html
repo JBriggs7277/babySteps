@@ -48,7 +48,7 @@
 		                <td th:text="${feedinglog.food}"></td>
 		                <td th:text="${feedinglog.ounces} + ' ounces'"></td>
 		                <td th:text="${feedinglog.burps}"></td>
-		                <td th:text="${feedinglog.created}"></td>
+		                <td th:text="${#dates.format(feedinglog.created, 'MM-dd-yyyy hh:mm a')}"></td>
 		                <td><a th:href="'/' + ${user.username} + '/' + ${child.name} + '/feedinglog/delete/' + ${feedinglog.uid}">Delete entry</a></td>
 		              </tr>
 	            </tbody>

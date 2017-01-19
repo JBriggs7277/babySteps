@@ -46,7 +46,7 @@
 		                <td th:text="${iterStat.index} + 1"></td>
 		                <td th:text="${measurementslog.height} + ' inches'"></td>
 		                <td th:text="${measurementslog.weight} + ' pounds'"></td>
-		                <td th:text="${measurementslog.created}"></td>
+		                <td th:text="${#dates.format(measurementslog.created, 'MM-dd-yyyy hh:mm a')}"></td>
 		                <td><a th:href="'/' + ${user.username} + '/' + ${child.name} + '/measurementslog/delete/' + ${measurementslog.uid}">Delete entry</a></td>
 		              </tr>
 	            </tbody>

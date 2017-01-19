@@ -42,7 +42,7 @@
         <div class="panel-body">
             <div th:unless="${changinglog == null}">
 				<h1 th:text="'Contents: ' + ${changinglog.contents}"></h1>
-				<h1 th:text="'Time: ' + ${changinglog.created}"></h1>
+				<h1 th:text="'Time: ' + ${#dates.format(changinglog.created, 'MM-dd-yyyy hh:mm a')}"></h1>
 			</div>
 			<h2><a th:href="'/' + ${user.username} + '/' + ${child.name} + '/changinglog'">View all changing logs</a></h2>
         </div>
@@ -56,7 +56,7 @@
 				<h1 th:text="'Food type: ' + ${feedinglog.food}"></h1>
 				<h1 th:text="' Ounces: ' + ${feedinglog.ounces}"></h1>
 				<h1 th:text="' Burp?: ' + ${feedinglog.burps}"></h1>
-				<h1 th:text="' Time: ' + ${feedinglog.created}"></h1>
+				<h1 th:text="' Time: ' + ${#dates.format(feedinglog.created, 'MM-dd-yyyy hh:mm a')}"></h1>
 			</div>
 			<h2><a th:href="'/' + ${user.username} + '/' + ${child.name} + '/feedinglog'">View all feeding logs</a></h2>
         </div>
@@ -69,7 +69,7 @@
             <div th:unless="${medicationlog == null}">
 				<h1 th:text="'Medicine: ' + ${medicationlog.medicine}"></h1>
 				<h1 th:text="'Dose: ' + ${medicationlog.dose}"></h1>
-				<h1 th:text="'Time: ' + ${medicationlog.created}"></h1>
+				<h1 th:text="'Time: ' + ${#dates.format(medicationlog.created, 'MM-dd-yyyy hh:mm a')}"></h1>
 			</div>
 			<h2><a th:href="'/' + ${user.username} + '/' + ${child.name} + '/medicationlog'">View all medication logs</a></h2>
         </div>
@@ -82,7 +82,7 @@
             <div th:unless="${measurementslog == null}">
 				<h1 th:text="'Height: ' + ${measurementslog.height}"></h1>
 				<h1 th:text="'Weight: ' + ${measurementslog.weight}"></h1>
-				<h1 th:text="'Time: ' + ${measurementslog.created}"></h1>
+				<h1 th:text="'Time: ' + ${#dates.format(measurementslog.created, 'MM-dd-yyyy hh:mm a')}"></h1>
 			</div>
 			<h2><a th:href="'/' + ${user.username} + '/' + ${child.name} + '/measurementslog'">View all measurement logs</a></h2>
         </div>
@@ -95,7 +95,7 @@
             <div th:unless="${eventlog == null}">
 				<h1 th:text="'Name of event: ' + ${eventlog.title}"></h1>
 				<h1 th:text="'Details: ' + ${eventlog.body}"></h1>
-				<h1 th:text="'Time: ' + ${eventlog.created}"></h1>
+				<h1 th:text="'Time: ' + ${#dates.format(eventlog.created, 'MM-dd-yyyy hh:mm a')}"></h1>
 			</div>
 			<h2><a th:href="'/' + ${user.username} + '/' + ${child.name} + '/eventlog'">View all life events</a></h2>
         </div>

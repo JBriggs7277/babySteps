@@ -46,7 +46,7 @@
 		                <td th:text="${iterStat.index} + 1"></td>
 		                <td th:text="${medicationlog.medicine}"></td>
 		                <td th:text="${medicationlog.dose} + ' ounces'"></td>
-		                <td th:text="${medicationlog.created}"></td>
+		                <td th:text="${#dates.format(medicationlog.created, 'MM-dd-yyyy hh:mm a')}"></td>
 		                <td><a th:href="'/' + ${user.username} + '/' + ${child.name} + '/medicationlog/delete/' + ${medicationlog.uid}">Delete entry</a></td>
 		              </tr>
 	            </tbody>
